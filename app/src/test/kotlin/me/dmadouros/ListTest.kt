@@ -23,7 +23,6 @@ class ListTest {
     }
 
     @Test
-    @Disabled
     fun testDrop() {
         assertThat(List.Nil.drop(1)).isEqualTo(List.empty())
         assertThat(List.of(1, 2, 3).drop(1)).isEqualTo(List.of(2, 3))
@@ -32,7 +31,6 @@ class ListTest {
     }
 
     @Test
-    @Disabled
     fun testDropWhile() {
         assertThat(List.Nil.dropWhile { true }).isEqualTo(List.empty())
         assertThat(List.of(1, 2, 3).dropWhile { it < 2 }).isEqualTo(List.of(2, 3))
@@ -41,7 +39,6 @@ class ListTest {
     }
 
     @Test
-    @Disabled
     fun testAppend() {
         assertThat(List.of(1, 2, 3).append(List.of(4, 5, 6))).isEqualTo(List.of(1, 2, 3, 4, 5, 6))
         assertThat(List.Nil.append(List.of(4, 5, 6))).isEqualTo(List.of(4, 5, 6))
@@ -50,28 +47,24 @@ class ListTest {
     }
 
     @Test
-    @Disabled
     fun testInit() {
         assertFailure { List.Nil.init() }.hasMessage("cannot init Nil list")
         assertThat(List.of(1, 2, 3, 4).init()).isEqualTo(List.of(1, 2, 3))
     }
 
     @Test
-    @Disabled
     fun testSum() {
         assertThat(List.Nil.sum()).isEqualTo(0)
         assertThat(List.of(1, 2, 3, 4).sum()).isEqualTo(10)
     }
 
     @Test
-    @Disabled
     fun testProduct() {
         assertThat(List.Nil.product()).isEqualTo(1.0)
         assertThat(List.of(1.0, 2.0, 3.0, 4.0).product()).isEqualTo(24.0)
     }
 
     @Test
-    @Disabled
     fun testFoldRight() {
         assertThat(
             List.Nil.foldRight(List.empty<Int>()) { x, y -> List.Cons(x, y) },
@@ -88,14 +81,12 @@ class ListTest {
     }
 
     @Test
-    @Disabled
     fun testLength() {
         assertThat(List.Nil.length()).isEqualTo(0)
         assertThat(List.of(1, 2, 3, 4).length()).isEqualTo(4)
     }
 
     @Test
-    @Disabled
     fun testFoldLeft() {
         assertThat(List.empty<Int>().foldLeft(0) { y, x -> x + y }).isEqualTo(0)
         assertThat(List.of(1, 2, 3).foldLeft(0) { y, x -> x + y }).isEqualTo(6)
@@ -110,7 +101,6 @@ class ListTest {
     }
 
     @Test
-    @Disabled
     fun testReverse() {
         assertThat(List.Nil.reverse()).isEqualTo(List.Nil)
         assertThat(List.of(1, 2, 3).reverse()).isEqualTo(List.of(3, 2, 1))
@@ -123,28 +113,24 @@ class ListTest {
     }
 
     @Test
-    @Disabled
     fun testFlatten() {
         assertThat(List.of(List.Nil).flatten()).isEqualTo(List.Nil)
         assertThat(List.of(List.of(1), List.of(2), List.of(3)).flatten()).isEqualTo(List.of(1, 2, 3))
     }
 
     @Test
-    @Disabled
     fun testAdd1() {
         assertThat(List.Nil.add1()).isEqualTo(List.empty())
         assertThat(List.of(1, 2, 3).add1()).isEqualTo(List.of(2, 3, 4))
     }
 
     @Test
-    @Disabled
     fun testDoubleToString() {
         assertThat(List.Nil.doubleToString()).isEqualTo(List.empty())
         assertThat(List.of(1.0, 2.0, 3.0).doubleToString()).isEqualTo(List.of("1.0", "2.0", "3.0"))
     }
 
     @Test
-    @Disabled
     fun testMap() {
         assertThat(List.empty<Int>().map { x -> x + 1 }).isEqualTo(List.empty())
         assertThat(List.of(1, 2, 3).map { x -> x + 1 }).isEqualTo(List.of(2, 3, 4))
@@ -152,14 +138,12 @@ class ListTest {
     }
 
     @Test
-    @Disabled
     fun testFilter() {
         assertThat(List.empty<Int>().filter { x -> x % 2 == 0 }).isEqualTo(List.empty())
         assertThat(List.of(1, 2, 3, 4).filter { x -> x % 2 == 0 }).isEqualTo(List.of(2, 4))
     }
 
     @Test
-    @Disabled
     fun testFlatMap() {
         assertThat(List.empty<Int>().flatMap { i -> List.of(i, i) }).isEqualTo(List.empty())
         assertThat(List.of(1, 2, 3).flatMap { i -> List.of(i, i) }).isEqualTo(List.of(1, 1, 2, 2, 3, 3))
@@ -171,7 +155,6 @@ class ListTest {
     }
 
     @Test
-    @Disabled
     fun testAddPairs() {
         assertThat(List.Nil.addPairs(List.of(4, 5, 6))).isEqualTo(List.empty())
         assertThat(List.of(1, 2, 3).addPairs(List.empty())).isEqualTo(List.empty())
@@ -181,7 +164,6 @@ class ListTest {
     }
 
     @Test
-    @Disabled
     fun testZipWith() {
         assertThat(List.Nil.zipWith(List.of(4, 5, 6)) { x, y -> x + y }).isEqualTo(List.empty())
         assertThat(List.of(1, 2, 3).zipWith(List.empty()) { x, y -> x + y }).isEqualTo(List.empty())
@@ -191,7 +173,6 @@ class ListTest {
     }
 
     @Test
-    @Disabled
     fun testTake() {
         assertThat(List.Nil.take(2)).isEqualTo(List.empty())
         assertThat(List.of(1, 2, 3).take(0)).isEqualTo(List.empty())
